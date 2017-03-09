@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  doctor: one
+  medical_condition: one
+  medical_category: one
+
+two:
+  patient: two
+  doctor: two
+  medical_condition: two
+  medical_category: two
