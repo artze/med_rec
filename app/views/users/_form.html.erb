@@ -1,0 +1,66 @@
+<form class="form-horizontal">
+<%= form_for(@user, remote: true) do |form| %>
+
+
+<div class="form-group">
+  <label for="inputFullName" class="control-label col-xs-2">
+  <%= form.label :full_name %></label>
+  <div class="col-xs-10"><%= form.text_field :full_name, type: 'full_name' %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputIdentityCard" class="control-label col-xs-2">
+  <%= form.label :identity_card %></label>
+  <div class="col-xs-10"><%= form.text_field :identity_card, type: 'identity_card' %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputEmail" class="control-label col-xs-2">
+  <%= form.label :email %></label>
+  <div class="col-xs-10"><%= form.text_field :email, type: 'email' %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputContactNumber" class="control-label col-xs-2">
+  <%= form.label :contact_number %></label>
+  <div class="col-xs-10"><%= form.text_field :contact_number %></div>
+</div>
+
+<div class="form-group">
+<div class="password-field">
+  <label for="inputPassword" class="control-label col-xs-2"><%= form.label :password %></label>
+  <div class="col-xs-10"><%= form.password_field :password %></div>
+</div></div>
+
+<div class="form-group">
+  <label for="inputStreetAddress" class="control-label col-xs-2"><%= form.label :street_address %></label>
+  <div class="col-xs-10"><%= form.text_field :street_address %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputPostcode" class="control-label col-xs-2">
+  <%= form.label :postcode %></label>
+  <div class="col-xs-10"><%= form.text_field :postcode %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputCity" class="control-label col-xs-2">
+  <%= form.label :city %></label>
+  <div class="col-xs-10"><%= form.text_field :city %></div>
+</div>
+
+<div class="form-group">
+  <label for="inputCountry" class="control-label col-xs-2">
+  <%= form.label :country %></label>
+  <div class="col-xs-10"><%= form.text_field :country %></div>
+</div>
+
+<div class="form-group">
+<div class="submit-field">
+    <%= form.submit %>
+</div></div>
+
+<div class="other-links">
+    <%= link_to t(".sign_in"), sign_in_path %>
+</div>
+<% end %>
