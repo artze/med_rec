@@ -6,8 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'csv'
+# require 'csv'
 
-CSV.foreach('../scrape_disease_names/diseases.csv') do |row|
-	MedicalCondition.create(name: row[0])
+# CSV.foreach('../scrape_disease_names/diseases.csv') do |row|
+# 	MedicalCondition.create(name: row[0])
+# end
+
+# Medical Categories
+
+category_arr = ['Neurology',
+'Orthopaedics',
+'Cancer',
+'Paediatrics',
+'Ear, Nose and Throat',
+'Ophthalmology',
+'Cardiovascular',
+'Endocrinology',
+'Renal Disorders',
+'Respiratory Disorders',
+'Gastroenterology',
+'Urinary & Reproductive System',
+'Obstetrics & Gynaecology',
+'Oral and Maxillofacial',
+'Dermatology',
+'Geriatic Disorders',
+'Haematology',
+'Psychiatry',
+'Infectious Diseases',
+'Rheumatology']
+
+category_arr.each do |elm|
+	MedicalCategory.create(name: elm)
 end

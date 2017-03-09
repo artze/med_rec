@@ -1,0 +1,2 @@
+class MedicalCategory < ApplicationRecord
+end
