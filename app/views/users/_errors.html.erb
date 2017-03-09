@@ -1,0 +1,9 @@
+
+<h2>
+  <%= pluralize(@user.errors.count, "error") %> found.
+</h2>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
