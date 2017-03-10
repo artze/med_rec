@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,21 +14,40 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<div id="header">
-  <nav class="navbar navbar-default navbar-static-top">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-    <%= button_to t(".sign_in"), sign_in_path, method: :get %>
-    <% end -%>
+      <a class="navbar-brand" href="/">Med_REC</a>
     </div>
+
+    <!-- navbar sign up in out  -->
+
+   <ul class="nav navbar-nav navbar-right">
+    <% if signed_in? %>
+      <li><%= link_to 'Sign Out', sign_out_path, method: :delete%></li>
+    <% else -%>
+    <%= link_to 'Sign In', sign_in_path, method: :get %>
+    <% end -%>
+     </ul>
+     </div>
+</nav>
+
+<!-- nav tabs for signed in users -->
+<ul class="nav nav-tabs">
+<% if signed_in? %>
+  <li><%= link_to 'My Profile', user_path(current_user) %></li>
+  <li><%= link_to 'User Index', users_path %></li>
+  <li><%= link_to 'Appointments', user_path(current_user) %></li>
+  <li><%= link_to 'Medical Records', users_path %></li>
+  <li><%= link_to 'Medication', user_path(current_user) %></li>
+  <li><%= link_to 'Appointments', users_path %></li>
+  <% else -%>
+  <% end -%>
+</ul>
 
 </head>
 
 <body>
-    
 
   <div id="flash">
     <% flash.each do |key, value| -%>
@@ -39,5 +56,6 @@
   </div>
 
   <%= yield %>
+
 </body>
 </html>
