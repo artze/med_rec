@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		@user.save
+		@user.patient!
 		@patient = Patient.new(user_id: @user.id, DOB: params[:DOB])
 		@patient.save
 	end
