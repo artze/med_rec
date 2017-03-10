@@ -4,10 +4,9 @@ class PatientsController < ApplicationController
 	end
 
 	def create
-		byebug
 		@user = User.new(user_params)
 		@user.save
-		@patient = Patient.new(user_id: @user.id)
+		@patient = Patient.new(user_id: @user.id, DOB: params[:DOB])
 		@patient.save
 	end
 
