@@ -38,9 +38,24 @@
     </select>
   </div>
 
+  <div class="form-group">
+  <label for="inputMR">Appointment</label>
+  <select class="form-control" id="appointment-select">
+  <%= form.date_field :date, min: Date.today  %><br />
+  <%= form.text_field :notes %> <br>
+  <%= form.submit %><br />
+  </div>
 
+  <div class="form-group">
+  <label for="inputMR">Medication</label>
+  <select class="form-control" id="medication-select">
+    <%= form.text_field :name %> <br>
+    <%= form.text_field :dosage %> <br>
+  </select>
   </div>
 
 <% end %>
+  
+
 </div>
 </div>
