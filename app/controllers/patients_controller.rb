@@ -5,12 +5,16 @@ class PatientsController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.save
-		@user.patient!
-		@patient = Patient.new(user_id: @user.id, DOB: params[:DOB])
-		@patient.save
-		sign_in(@user)
-		redirect_to patient_path(@patient)
+		if @user.save
+			@user.patient!
+			@patient = Patient.new(user_id: @user.id, DOB: params[:DOB])
+			@patient.save
+			sign_in(@user)
+			redirect_to patient_path(@patient)
+		else
+			flash[:notice] = 'Input Error'
+			redirect_to new_patient_path
+		end
 	end
 
 	def show
