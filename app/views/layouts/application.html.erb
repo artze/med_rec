@@ -32,16 +32,23 @@
      </div>
 </nav>
 
-<!-- nav tabs for signed in users -->
+<!-- nav tabs for PATIENTS NAVBAR -->
 <ul class="nav nav-tabs">
 <% if signed_in? %>
+<% if current_user.patient? %>
   <li><%= link_to 'My Profile', user_path(current_user) %></li>
-  <li><%= link_to 'User Index', users_path %></li>
   <li><%= link_to 'Appointments', user_path(current_user) %></li>
   <li><%= link_to 'Medical Records', users_path %></li>
   <li><%= link_to 'Medication', user_path(current_user) %></li>
-  <li><%= link_to 'Appointments', users_path %></li>
-  <% else -%>
+</ul>
+
+<% else %>
+<!-- nav tabs for DOCTORS NAVBAR -->
+<ul class="nav nav-tabs">
+  <li><%= link_to 'My Profile', user_path(current_user) %></li>
+  <li><%= link_to 'Appointments', user_path(current_user) %></li>
+  <li><%= link_to 'Medical Records', users_path %></li>
+  <% end -%>
   <% end -%>
 </ul>
 

@@ -1,0 +1,50 @@
+<!-- Page Content -->
+<div class="container">
+<h1><%= "Welcome, DOCTOR "+  @doctor.full_name %></h1>
+	<div class="row">
+		<div class="col-md-4">
+			
+			<p class="lead">Basic Info</p>
+			<div class="list-group">
+				<div class="list-group-item">
+				<%= @doctor.full_name %></div>
+				<div class="list-group-item">Email:
+				<%= @doctor.email %></div>
+				<a href="#" class="list-group-item">Age:</a>
+				<a href="#" class="list-group-item">Gender:</a>
+				<a href="#" class="list-group-item">Height:</a>
+				<a href="#" class="list-group-item">Weight: kg</a>
+				<a href="#" class="list-group-item">BloodType</a>
+				<div class="list-group-item"><%= button_to "Edit Profile", edit_user_path(current_user), method: :get %></div>
+				
+			</div>
+		</div>
+		<div class="col-md-8 pull-right">
+			<p class="lead">Vital Stats Recorded[Date of Recent Appointment]</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item">Category 1</a>
+				<a href="#" class="list-group-item">Category 2</a>
+				<a href="#" class="list-group-item">Category 3</a>
+				
+			</div>
+		</div>
+		<div class="col-md-8 pull-right">
+			<p class="lead">Current Allergies</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item">Category 1</a>
+				<a href="#" class="list-group-item">Category 2</a>
+				<a href="#" class="list-group-item">Category 3</a>
+				
+			</div>
+		</div>
+		<div class="col-md-8 pull-right">
+			<p class="lead">Current Medications & Supplements</p>
+			<div class="list-group">
+				<a href="#" class="list-group-item">Category 1</a>
+				<a href="#" class="list-group-item">Category 2</a>
+				<a href="#" class="list-group-item">Category 3</a>
+
+			</div>
+		</div>
+		</div> 
+		</div> 

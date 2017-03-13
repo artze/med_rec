@@ -9,7 +9,13 @@ class PatientsController < ApplicationController
 		@user.patient!
 		@patient = Patient.new(user_id: @user.id, DOB: params[:DOB])
 		@patient.save
+		sign_in(@user)
+		redirect_to patient_path(@patient)
 	end
+
+	def show
+		@patient = current_user
+	end 
 
 	private
 
