@@ -38,7 +38,7 @@
 <% if current_user.patient? %>
   <li><%= link_to 'My Profile', user_path(current_user) %></li>
   <li><%= link_to 'Appointments', user_path(current_user) %></li>
-  <li><%= link_to 'Medical Records', users_path %></li>
+  <li><%= link_to 'Medical Records', patient_medical_record_path(current_user) %></li>
   <li><%= link_to 'Medication', user_path(current_user) %></li>
 </ul>
 
@@ -47,7 +47,7 @@
 <ul class="nav nav-tabs">
   <li><%= link_to 'My Profile', user_path(current_user) %></li>
   <li><%= link_to 'Appointments', user_path(current_user) %></li>
-  <li><%= link_to 'Medical Records', users_path %></li>
+  <li><%= link_to 'Medical Records', new_doctor_medical_record_path(current_user)%></li>
   <% end -%>
   <% end -%>
 </ul>
