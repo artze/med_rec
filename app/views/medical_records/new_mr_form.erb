@@ -1,4 +1,14 @@
 <div class="container">
+  
+  <div class="panel panel-info">
+  <div class="panel-heading">Patient Info</div>
+      <div class="panel-body">
+        <h2><b>Patient:</b> <%= @user.full_name %><br>
+        <b>IC:</b> <%= @user.identity_card %><br>
+        <b>D.O.B:</b> <%= @user.patient.DOB %><br></h2>
+        </div>
+      </div>
+
 <%= form_tag(doctor_MR_submit_path, method: :post) do %>
 
  <input type="hidden" name="patient_id" value="<%= @patient_id%>">
@@ -18,11 +28,14 @@
   <%= options_from_collection_for_select(@medical_categories, 'id', 'name') %>
     </select>
   </div>
-
-   <div class="form-group">
-  <label for="inputAppt">Appointment</label>
-  <id="appointment-select" >
-  <input type="date" name="appointment_date" value=<%=Date.today.strftime('%Y-%m-%d')%>><br> </div>
+<br>
+    <center> 
+    <div class="form-group">
+      <label for="inputAppt">Appointment</label>
+      <id="appointment-select" >
+      <input type="date" name="appointment_date" value=<%=Date.today.strftime('%Y-%m-%d')%>><br>
+       </div>
+    </center>
 
   <div class="form-group">
   <label for="inputApptNotes" >
