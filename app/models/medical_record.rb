@@ -4,4 +4,5 @@ class MedicalRecord < ApplicationRecord
   belongs_to :medical_condition
   belongs_to :medical_category
   has_many :medications
+  has_many :appointments
 end
