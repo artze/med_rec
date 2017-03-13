@@ -1,0 +1,56 @@
+<div class="container">
+<%= form_tag(doctor_MR_submit_path, method: :post) do %>
+
+ <input type="hidden" name="patient_id" value="<%= @patient_id%>">
+  
+   <div class="form-group">
+  <label for="inputMR">Medical Condition</label>
+  <select class="form-control" id="medicalcondition-select" name="medical_condition">
+    
+  <%= options_from_collection_for_select(@medical_conditions, 'id', 'name') %>
+
+  </select>
+  </div>
+
+  <div class="form-group">
+  <label for="inputMR">Medical Category</label>
+  <select class="form-control" id="medicalcategory-select" name="medical_category">
+  <%= options_from_collection_for_select(@medical_categories, 'id', 'name') %>
+    </select>
+  </div>
+
+   <div class="form-group">
+  <label for="inputAppt">Appointment</label>
+  <id="appointment-select" >
+  <input type="date" name="appointment_date" value=<%=Date.today.strftime('%Y-%m-%d')%>><br> </div>
+
+  <div class="form-group">
+  <label for="inputApptNotes" >
+  <%= label_tag :notes %></label>
+  <%= text_area_tag :notes, nil, class: 'form-control' %></div>
+
+  <div class="form-group">
+  <label for="inputMedName1">Medicine Name:</label>
+  <%= text_field_tag :medicine_name1, nil, class: 'form-control' %><br>
+  <label for="inputDosage1">Dosage:</label>
+    <%= text_field_tag :dosage1, nil, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+  <label for="inputMedName2">Medicine Name:</label>
+  <%= text_field_tag :medicine_name2, nil, class: 'form-control' %><br>
+  <label for="inputDosage2">Dosage:</label>
+    <%= text_field_tag :dosage2, nil, class: 'form-control' %>
+  </div></div>
+
+  <div class="form-group">
+    <%= submit_tag('Submit') %>
+  </div>
+
+
+<% end %>
+  
+
+</div>
+</div>
+</div>

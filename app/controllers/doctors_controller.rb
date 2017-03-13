@@ -3,6 +3,7 @@ class DoctorsController < ApplicationController
 
 	def new
 		@user = User.new
+		@medical_categories = MedicalCategory.all
 	end
 
 	def create
