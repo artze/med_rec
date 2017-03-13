@@ -22,7 +22,10 @@ resources :patients  do
  	end 
 
  	resources :doctors do
- 		resources :medical_records
+ 		get "/medical_records/patient_input", to: 'medical_records#patient_input', as: 'MR_patient_input'
+ 		post "/medical_records/patient_input", to: 'medical_records#patient_submit', as: 'MR_patient_submit'
+ 		get "/medical_records/input", to: 'medical_records#record_input', as: 'MR_input'
+ 		post "/medical_records/input", to: 'medical_records#record_submit', as: 'MR_submit'
  	end 
 
 end

@@ -57,7 +57,10 @@
 <div class="form-group">
   <label for="specialization" class="control-label col-xs-2">
   <%= label_tag :specialization %></label>
-  <div class="col-xs-10"><%= text_field_tag :specialization %></div>
+  <div class="col-xs-10"><select class="form-control" id="specialization-select">
+  <%= options_from_collection_for_select(@medical_categories, 'id', 'name') %>
+    </select>
+</div>
 </div>
 
 <div class="form-group">
