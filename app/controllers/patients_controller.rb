@@ -15,5 +15,5 @@ class PatientsController < ApplicationController
 
 	def user_params
     params[:user].permit(:email, :password, :full_name, :identity_card, :street_address,:postcode, :city, :country, :contact_number)
-  end
+ 	end
 end
