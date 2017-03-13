@@ -1,4 +1,6 @@
 class DoctorsController < ApplicationController
+
+
 	def new
 		@user = User.new
 	end

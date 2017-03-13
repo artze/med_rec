@@ -1,0 +1,71 @@
+<!-- Page Content -->
+<div class="container">
+<h1><%= "Welcome, PATIENT "+  @patient.full_name %></h1>
+	<div class="row">
+		<div class="col-md-4">
+			
+			<p class="lead">Basic Info</p>
+			<div class="list-group">
+				<div class="list-group-item">
+				<%= @patient.full_name %></div>
+				<div class="list-group-item">Email:
+				<%= @patient.email %></div>
+				<a href="#" class="list-group-item">Age:</a>
+				<a href="#" class="list-group-item">Gender:</a>
+				<a href="#" class="list-group-item">Height:</a>
+				<a href="#" class="list-group-item">Weight: kg</a>
+				<a href="#" class="list-group-item">BloodType</a>
+				<div class="list-group-item"><%= button_to "Edit Profile", edit_user_path(current_user), method: :get %></div>
+				
+			</div>
+		</div>
+		<div class="col-md-8 pull-right">
+			<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>
+					Appointment Date
+				</th>
+				<th>
+					Notes
+				</th>
+				<th>
+					Medical Condition
+				</th>
+				<th>
+					Medical Category
+				</th>
+				<th>
+					Doctor
+				</th>
+			</tr>
+		</thead>
+
+		<!-- 		<tbody>
+			 current_user.listings.all.each do |x| 
+			<tr>
+				<td><%= x.home_title %></td>
+				<td><%= x.summary %></td>
+				<td><%= x.price %></td>
+				<td><%= x.states %></td>
+				<td><%= x.address %></td>
+				<td>
+					<a href="/listings/<%= x.id %>">Press for more details!</a>
+				</td>
+			</tr>
+			<% end %>
+		</tbody> -->
+
+	</table>
+		
+
+
+
+
+
+
+
+		</div>
+	
+		</div> 
+		</div> 
