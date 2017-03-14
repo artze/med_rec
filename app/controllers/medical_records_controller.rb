@@ -30,10 +30,8 @@ class MedicalRecordsController < ApplicationController
 	def patient_submit
 		@user = User.find_by(identity_card: params[:identity_card])
 		if @user && @user.patient?
-			@patient_id = @user.patient.id
-			@medical_conditions = MedicalCondition.all
-			@medical_categories = MedicalCategory.all
-			render '/medical_records/new_mr_form'
+			session[:patient_id] = @user.patient.id
+			redirect_to doctor_MR_input_path
 		else
 			render text: 'error'
 		end
@@ -41,21 +39,21 @@ class MedicalRecordsController < ApplicationController
 
 	def record_input
 		#medical record input form, medical conditions etc.
-		
+		@user = Patient.find(session[:patient_id]).user
+		@medical_conditions = MedicalCondition.all
+		@medical_categories = MedicalCategory.all
 		render 'medical_records/new_mr_form'
 	end
 
 	def record_submit
-		@medical_record = MedicalRecord.new(patient_id: params[:patient_id], doctor_id: params[:doctor_id], medical_condition_id: params[:medical_condition], medical_category_id: params[:medical_category])
+		@medical_record = MedicalRecord.new(patient_id: session[:patient_id], doctor_id: params[:doctor_id], medical_condition_id: params[:medical_condition], medical_category_id: params[:medical_category])
 		@medical_record.save
 
 		@appointment = Appointment.new(medical_record_id: @medical_record.id, appointment_date: params[:appointment_date], notes: params[:notes])
 		@appointment.save
 
-		@medication = Medication.new(medical_record_id: @medical_record.id, name: params[:medicine_name1], dosage: params[:dosage1])
-		@medication.save
-		@medication = Medication.new(medical_record_id: @medical_record.id, name: params[:medicine_name2], dosage: params[:dosage2])
-		@medication.save
+		session[:medical_record_id] = @medical_record.id
+		redirect_to doctor_medications_input_path(params[:doctor_id])
 	end
 
 	private

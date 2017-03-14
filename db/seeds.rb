@@ -8,7 +8,7 @@
 
 # require 'csv'
 
-# CSV.foreach('../scrape_disease_names/diseases.csv') do |row|
+# CSV.foreach('app/db/diseases.csv') do |row|
 # 	MedicalCondition.create(name: row[0])
 # end
 

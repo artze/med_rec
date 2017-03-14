@@ -26,6 +26,8 @@ resources :patients  do
  		post "/medical_records/patient_input", to: 'medical_records#patient_submit', as: 'MR_patient_submit'
  		get "/medical_records/input", to: 'medical_records#record_input', as: 'MR_input'
  		post "/medical_records/input", to: 'medical_records#record_submit', as: 'MR_submit'
+ 		get "/medical_records/medication_input", to: 'medications#medications_input', as: 'medications_input'
+ 		post "/medical_records/medication_input", to: 'medications#medications_submit', as: 'medications_submit'
  	end 
 
 end
