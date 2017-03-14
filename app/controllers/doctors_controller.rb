@@ -8,12 +8,16 @@ class DoctorsController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.save
-		@user.doctor!
-		@doctor = Doctor.new(user_id: @user.id, specialization: params[:specialization])
-		@doctor.save
-		sign_in(@user)
-		redirect_to doctor_path(@doctor)
+		if @user.save
+			@user.doctor!
+			@doctor = Doctor.new(user_id: @user.id, specialization: params[:specialization])
+			@doctor.save
+			sign_in(@user)
+			redirect_to doctor_path(@doctor)
+		else
+			flash[:notice] = 'Input Error'
+			redirect_to new_doctor_path
+		end
 	end
 
 	def show
@@ -24,6 +28,6 @@ class DoctorsController < ApplicationController
 
 	def user_params
     params[:user].permit(:email, :password, :full_name, :identity_card, :street_address,:postcode, :city, :country, :contact_number)
-  	end
+  end
 
 end

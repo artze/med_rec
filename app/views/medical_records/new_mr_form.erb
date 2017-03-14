@@ -5,13 +5,12 @@
       <div class="panel-body">
         <h2><b>Patient:</b> <%= @user.full_name %><br>
         <b>IC:</b> <%= @user.identity_card %><br>
-        <b>D.O.B:</b> <%= @user.patient.date_of_birth %><br></h2>
+        <b>D.O.B:</b> <%= @user.patient.date_of_birth.strftime('%d %b %Y') %><br></h2>
         </div>
       </div>
 
 <%= form_tag(doctor_MR_submit_path, method: :post) do %>
 
- <input type="hidden" name="patient_id" value="<%= @patient_id%>">
   
    <div class="form-group">
   <label for="inputMR">Medical Condition</label>
@@ -42,22 +41,8 @@
   <%= label_tag :notes %></label>
   <%= text_area_tag :notes, nil, class: 'form-control' %></div>
 
-  <div class="form-group">
-  <label for="inputMedName1">Medicine Name:</label>
-  <%= text_field_tag :medicine_name1, nil, class: 'form-control' %><br>
-  <label for="inputDosage1">Dosage:</label>
-    <%= text_field_tag :dosage1, nil, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-  <label for="inputMedName2">Medicine Name:</label>
-  <%= text_field_tag :medicine_name2, nil, class: 'form-control' %><br>
-  <label for="inputDosage2">Dosage:</label>
-    <%= text_field_tag :dosage2, nil, class: 'form-control' %>
-  </div></div>
-
-  <div class="form-group">
-    <%= submit_tag('Submit') %>
+   <div class="form-group">
+    <%= submit_tag('Submit and prescribe medication') %>
   </div>
 
 

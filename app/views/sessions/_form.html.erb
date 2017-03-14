@@ -1,30 +1,167 @@
-<div class="form-horizontal">
-<%= form_for :session, url: session_path do |form| %>
+<center>
 
-  
-   <div class="form-group">
-    <label for="inputEmail" class="control-label col-xs-2">
-    <%= form.label :email %></label>
-    <div class="col-xs-10"><%= form.text_field :email, type: 'email' %></div>
+<div id="clearance" class="sign-in">
+    <h2><%= t("SIGN_IN") %></h2>
+    <%= @error_msg %>
+    </div>
+  <div class="form-horizontal">
+    <%= form_for :session, url: session_path do |form| %>
+    
+    <div class="form-group">
+      <label for="inputEmail" class="control-label col-md-5">
+      <%= form.label :email %></label>
+      <div class="col-md-1"><%= form.text_field :email, type: 'email' %></div>
+    </div>
+    <div class="form-group">
+      <div class="password-field">
+        <label for="inputPassword" class="control-label col-md-5"><%= form.label :password %></label>
+        <div class="col-md-1"><%= form.password_field :password %></div>
+      </div></div>
+      <div class="form-group">
+        <div class="submit-field">
+          <label for="inputCountry" class="control-label col-md-5">
+            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+            Submit
+            <% end %>
+          </div>
+
+          <div class="control-label col-md-2">
+            <% if Clearance.configuration.allow_sign_up? %>
+            <%= link_to t(".sign_up"), sign_up_path %><br>
+            <% end %>
+            <%= link_to t(".forgot_password"), new_password_path %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      </center>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-10">
+      <h2>About Med Base</h2>
+      <p>We provide a medical record solution that helps patient and doctors access medical records with ease and practicality.</p> 
+      <p>When you choose Med Base, we ensure that every aspect of your data is kept safely, whilst also providing the level of profeionalism that helps your doctor make better decision making for yoour health.</p>
+    
+    </div>
+
+    <div class="col-sm-2">
+       <span class="glyphicon glyphicon-plus logo" ></span> 
+    </div>
   </div>
+</div>
 
-  <div class="form-group">
-<div class="password-field">
-  <label for="inputPassword" class="control-label col-xs-2"><%= form.label :password %></label>
-  <div class="col-xs-10"><%= form.password_field :password %></div>
-</div></div>
-
-  <div class="form-group">
-<div class="submit-field">
-<label for="inputCountry" class="control-label col-xs-2">
-    <%= form.submit %>
-</div></div>
-
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-globe logo"></span> 
+    </div>
+    <div class="col-sm-9">
+      <h2>Our Values</h2>
+      <h4><strong>MISSION:</strong> Our mission </h4> 
+      <p><strong>VISION:</strong> Our vision </p>
+    </div>
   </div>
-<% end %>
+</div>
+
+<div class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-off"></span>
+      <h4>Private Healthcare Management</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart"></span>
+      <h4>LOVE</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock"></span>
+      <h4>Health</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    </div>
+    <br><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-leaf"></span>
+      <h4>GREEN</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-certificate"></span>
+      <h4>CERTIFIED</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-wrench"></span>
+      <h4>HARD WORK</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid text-center bg-grey">
+  <h2>Managing your health</h2>
+  <h4>We are here to help!</h4>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="paris.jpg" alt="Paris">
+        <p><strong>Paris</strong></p>
+        <p>Yes, we built Paris</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="newyork.jpg" alt="New York">
+        <p><strong>New York</strong></p>
+        <p>We built New York</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="/1.jpg" alt="San Francisco">
+        <p><strong>San Francisco</strong></p>
+        <p>Yes, San Fran is ours</p>
+      </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Malaysia</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +016 0000000</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> medrec@rec.com</p> 
+    </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div> 
+    </div>
+  </div>
 </div>
