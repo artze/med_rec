@@ -1,7 +1,8 @@
 class MedicalRecordsController < ApplicationController
 
 	def index
-		@medicalrecords = MedicalRecord.all 
+		@patient = current_user
+		@medical_records = MedicalRecord.where(patient_id: current_user.patient.id)
 	end 
 
 	# def new 
