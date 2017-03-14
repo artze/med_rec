@@ -14,9 +14,14 @@
 </div>
 
 <div class="form-group">
-  <label for="inputDOB" class="control-label col-xs-2">
-  <%= label_tag 'Date of Birth' %></label>
-  <div class="col-xs-10"><%= date_field_tag :DOB %></div>
+  <%= form.fields_for :patient do |f| %>
+    <label for="inputEmail" class="control-label col-xs-2">
+      <%= f.label :date_of_birth %>
+    </label>
+    <div class="col-xs-10">
+      <%= f.date_field :date_of_birth %>
+    </div>
+  <% end %>
 </div>
 
 <div class="form-group">
