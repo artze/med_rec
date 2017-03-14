@@ -1,10 +1,10 @@
-<%= form_tag("#{doctor_MR_patient_submit_path}", method: :post) do %>
-
-  
-  <div class="form-group">
-    <%= label_tag(:identity_card) %>
-    <%= text_field_tag(:identity_card)%>
-    <%= submit_tag('Submit') %>
-  </div>
-
-<% end %>
+<div class="container">
+	<%= form_tag("#{doctor_MR_patient_submit_path}", method: :post) do %>
+	
+	<div class="form-group">
+		<%= label_tag(:identity_card) %>
+		<%= text_field_tag(:identity_card)%>
+		<%= submit_tag('Submit') %>
+	</div>
+	<% end %>
+</div>
