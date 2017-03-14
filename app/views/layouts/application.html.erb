@@ -11,25 +11,40 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+<script src="https://use.fontawesome.com/a416a0a082.js"></script>
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Med_REC</a>
+      <a class="navbar-brand" href="/">Med REC</a>
     </div>
+
+ <!--    <p class="navbar-text navbar-right">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <%#= link_to 'Sign In', sign_in_path, method: :get %>
+    </p> -->
 
     <!-- navbar sign up in out  -->
 
-   <ul class="nav navbar-nav navbar-right">
-    <% if signed_in? %>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
       <li><%= link_to 'Sign Out', sign_out_path, method: :delete%></li>
-    <% else -%>
-    <%= link_to 'Sign In', sign_in_path, method: :get %>
-    <% end -%>
-     </ul>
-     </div>
+      <% else %>
+      <li><%= link_to 'About Us' %></li>
+      <li><%= link_to 'Services' %></li>
+      <li><%= link_to 'Specialist' %></li>
+      <li><%= link_to 'Product' %></li>
+      <li><%= link_to 'Articles' %></li>
+      <li><%= link_to 'Sign In', sign_in_path, method: :get %></li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
 
 <!-- nav tabs for PATIENTS NAVBAR -->
@@ -65,4 +80,13 @@
   <%= yield %>
 
 </body>
+
+<footer class="container-fluid text-center">
+<p><i class="fa fa-wheelchair-alt lg"></i>Back to Top</p>
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>©MED REC</p> 
+</footer>
+
 </html>
