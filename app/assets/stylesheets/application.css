@@ -104,3 +104,7 @@ h4 {
     font-weight: 400;
     margin-bottom: 30px;
 }
+
+.form-group {
+    margin: 15px;
+}
