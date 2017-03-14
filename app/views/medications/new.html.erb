@@ -3,8 +3,8 @@ Medical Category: <%= MedicalRecord.find(session[:medical_record_id]).medical_ca
 Appointment Date: <%= Appointment.where(medical_record_id: session[:medical_record_id]).last.appointment_date %> <br>
 Notes: <%= Appointment.where(medical_record_id: session[:medical_record_id]).last.notes %> <br>
 
-<% if !Medication.find_by(medical_record_id: session[:medical_record_id]).nil? %>
-	<% Medication.where(medical_record_id: session[:medical_record_id]).each do |med| %>
+<% if !Medication.find_by(appointment_id: session[:appointment_id]).nil? %>
+	<% Medication.where(appointment_id: session[:appointment_id]).each do |med| %>
 		<p>Medication: <%= med.name %> </p>
 		<p>Dosage: <%= med.dosage %></p>
 	<% end %>
