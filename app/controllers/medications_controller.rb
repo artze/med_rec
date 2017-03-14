@@ -1,7 +1,9 @@
 class MedicationsController < ApplicationController
+
 	def medications_input
 		@medication = Medication.new
 		@appointment = Appointment.find(session[:appointment_id])
+		@patient = MedicalRecord.find(session[:medical_record_id]).patient
 		render :new
 	end
 

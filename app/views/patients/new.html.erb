@@ -20,6 +20,17 @@
       </div>
     </div>
 
+  <div class="form-group">
+    <%= form.fields_for :patient do |f| %>
+      <div class="control-label col-md-4">
+        Date of birth: 
+      </div>
+      <div class="col-md-4">
+        <%= f.date_field :date_of_birth, class: 'form-control' %>
+      </div>
+   <% end %>
+  </div>
+
     <div class="form-group">
       <div class="control-label col-md-4">
         Email: 

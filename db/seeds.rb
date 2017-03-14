@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'csv'
+require 'csv'
 
-# CSV.foreach('app/db/diseases.csv') do |row|
-# 	MedicalCondition.create(name: row[0])
-# end
+CSV.foreach('db/diseases.csv') do |row|
+	MedicalCondition.create(name: row[0])
+end
 
 # Medical Categories
 
