@@ -22,6 +22,13 @@ body {
 
 .jumbotron {
     font-family: Montserrat, sans-serif;
+     background-image:url("/6.jpg") ;
+
+}
+
+.jumbotron h1 {
+
+  color: #fff;
 }
 
 .navbar {
@@ -39,6 +46,10 @@ body {
     padding: 60px 50px;
 }
 
+.heart{
+
+font-size: 25px;
+}
 
 .logo {
     font-size: 200px;
