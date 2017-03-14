@@ -1,11 +1,12 @@
 class MedicationsController < ApplicationController
 	def medications_input
 		@medication = Medication.new
+		@appointment = Appointment.find(session[:appointment_id])
 		render :new
 	end
 
 	def medications_submit
-		@medication = MedicalRecord.find(session[:medical_record_id]).medications.new(medication_params)
+		@medication = Appointment.find(session[:appointment_id]).medications.new(medication_params)
 		if @medication.save
 			redirect_to doctor_medications_input_path
 		end

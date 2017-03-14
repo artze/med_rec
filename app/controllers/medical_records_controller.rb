@@ -53,6 +53,7 @@ class MedicalRecordsController < ApplicationController
 		@appointment.save
 
 		session[:medical_record_id] = @medical_record.id
+		session[:appointment_id] = @appointment.id
 		redirect_to doctor_medications_input_path(params[:doctor_id])
 	end
 
