@@ -23,6 +23,6 @@ class PatientsController < ApplicationController
 	private
 
 	def user_params
-    params[:user].permit(:email, :password, :full_name, :identity_card, :street_address, :postcode, :city, :country, :contact_number, patient_attributes: [:date_of_birth])
+    params[:user].permit(:email, :password, :full_name, :identity_card, :street_address, :postcode, :city, :country, :contact_number, patient_attributes: [:date_of_birth, :gender, :height, :weight, :blood_type])
  	end
 end

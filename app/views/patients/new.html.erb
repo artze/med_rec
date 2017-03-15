@@ -20,90 +20,128 @@
       </div>
     </div>
 
-  <div class="form-group">
-    <%= form.fields_for :patient do |f| %>
+  <%= form.fields_for :patient do |f| %>
+    <div class="form-group">
       <div class="control-label col-md-4">
         Date of birth: 
       </div>
       <div class="col-md-4">
         <%= f.date_field :date_of_birth, class: 'form-control' %>
       </div>
-   <% end %>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label col-md-4">
+        Gender: 
+      </div>
+      <div class="col-md-4">
+        <%= f.select :gender, ['Male', 'Female'], {}, {class: 'form-control'} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label col-md-4">
+        Height: 
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :height, class: 'form-control', placeholder: 'in cm' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label col-md-4">
+        Weight: 
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field :weight, class: 'form-control', placeholder: 'in KG' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label col-md-4">
+        Blood Type: 
+      </div>
+      <div class="col-md-4">
+        <%= f.select :blood_type, ['O', 'A', 'B', 'AB'], {}, {class: 'form-control'} %>
+      </div>
+    </div>
+  <% end %>
+
+
+
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      Email: 
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :email, type: 'email', class: 'form-control' %>
+    </div> 
   </div>
 
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        Email: 
-      </div>
-      <div class="col-md-4">
-        <%= form.text_field :email, type: 'email', class: 'form-control' %>
-      </div> 
+
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      Contact Number: 
     </div>
+    <div class="col-md-4">
+      <%= form.text_field :contact_number, class: 'form-control' %>
+    </div> 
+  </div>
 
 
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        Contact Number: 
-      </div>
-      <div class="col-md-4">
-        <%= form.text_field :contact_number, class: 'form-control' %>
-      </div> 
-    </div>
-
-
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        <div class="password-field">
-          Password: 
-        </div>
-      </div>
-      <div class="col-md-4">
-      <%= form.password_field :password, class: 'form-control' %>
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      <div class="password-field">
+        Password: 
       </div>
     </div>
-
-
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        Street Address: 
-      </div>
-      <div class="col-md-4">
-        <%= form.text_field :street_address, class: 'form-control' %>
-      </div>
-    </div>
-     
-    <div class="form-group">  
-      <div class="control-label col-md-4">
-        Postcode: 
-      </div>
-      <div class="col-md-4">
-      <%= form.text_field :postcode, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        City: 
-      </div>
-      <div class="col-md-4">
-        <%= form.text_field :city, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="control-label col-md-4">
-        Country:
-      </div>
-      <div class="col-md-4">
-        <%= form.text_field :country, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="form-group">
-    <div class="control-label col-md-6">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-md-4">
+    <%= form.password_field :password, class: 'form-control' %>
     </div>
   </div>
+
+
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      Street Address: 
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :street_address, class: 'form-control' %>
+    </div>
+  </div>
+   
+  <div class="form-group">  
+    <div class="control-label col-md-4">
+      Postcode: 
+    </div>
+    <div class="col-md-4">
+    <%= form.text_field :postcode, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      City: 
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :city, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      Country:
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :country, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <div class="control-label col-md-6">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
 
   
   <% end %>
