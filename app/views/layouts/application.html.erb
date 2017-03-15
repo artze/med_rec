@@ -60,9 +60,8 @@
 <% if current_user.patient? %>
 
   <li><%= link_to 'My Profile', patient_path(current_user) %></li>
-  <li><%= link_to 'Appointments', edit_user_path %></li>
-  <li><%= link_to 'Medical Records', patient_medical_record_path(current_user) %></li>
-  <li><%= link_to 'Medication', edit_user_path %></li>
+  <li><%= link_to 'Appointments', edit_user_path(current_user) %></li>
+  <li><%= link_to 'Medical Records', patient_medical_records_path(current_user.patient) %></li>
 </ul>
 
 <% else %>
@@ -89,7 +88,5 @@
   <%= yield %>
 
 </body>
-
-
 
 </html>
