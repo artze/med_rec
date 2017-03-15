@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-md-6 col-md-offset-3">
     <div class="panel-group">
-    <div class="panel panel-default">
+    <div class="panel panel-info">
 
 <div class="panel-heading">Records Summary for <%= @patient.user.full_name %></div>
 <div class="panel-body">
@@ -33,7 +33,7 @@ Medical Condition:<br>
 		<%= form.label 'Dosage' %>
 		<%= form.text_field :dosage, class:"form-control" %>
 	</div>
-	<%= form.submit 'Submit', class:"btn btn-primary" %>
+	<center><%= form.submit 'Submit', class:"btn btn-primary" %></center>
 <% end %>
 
 </div>

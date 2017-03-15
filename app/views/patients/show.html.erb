@@ -1,51 +1,65 @@
 <!-- Page Content -->
 <div class="container">
-<h1><%= "Welcome, "+  @patient.full_name %></h1>
-
+	<h1><%= "Welcome, "+  @user.full_name %></h1>
 
 	<div class="row">
 		<div class="col-md-4">
-			
 			<p class="lead">Basic Info</p>
-			<div class="list-group">
-			<div class="list-group-item">Age: 30</a></div>
-				<div class="list-group-item">Email:
-				<%= @patient.email %></div>
-				<div class="list-group-item">Gender: Male</a></div>
-				<div class="list-group-item">Height: 175 CM</a></div>
-				<div class="list-group-item">Weight: 75 kg</a></div>
-				<div class="list-group-item">BloodType: O+ </a></div>
-				<div class="list-group-item"><%= button_to "Edit Profile", edit_user_path(current_user), method: :get %></div>
-				
-				
-			</div>
+				<div class="list-group">
+					<div class="list-group-item">
+					<%= "D.O.B: " + @patient.date_of_birth.strftime("%d %b %Y") %>
+					</div>
+					<div class="list-group-item">
+						<%= "Email: " + @user.email %>
+					</div>
+					<div class="list-group-item"> 
+						<%= "Gender: " + @patient.gender.to_s %>
+					</div>
+					<div class="list-group-item"> 
+						<%= "Height: " + @patient.height.to_s + " CM" %> 
+					</div>
+					<div class="list-group-item"> 
+						<%= "Weight: " + @patient.weight.to_s + " KG" %> 
+					</div>
+					<div class="list-group-item"> 
+						<%= "BloodType: " + @patient.blood_type.to_s %>
+					</div>
+					<div class="list-group-item">
+						<%= button_to "Edit Profile", edit_user_path(current_user), method: :get %>
+					</div>
+				</div>
 		</div>
+		
 		<div class="col-md-8 pull-right">
 			<p class="lead">Medical Records History [Date of Recent Appointment]</p>
 			<div class="list-group">
-				<a href="#" class="list-group-item">Appointment - 05/01/2017</a>
-				<a href="#" class="list-group-item">Appointment - 30/12/2016</a>
-				<a href="#" class="list-group-item">Check Up - 20/12/2016 </a>
-				
+				<div class="list-group-item">Appointment - 05/01/2017
+				</div>
+				<div class="list-group-item">Appointment - 30/12/2016
+				</div>
+				<div class="list-group-item">Check Up - 20/12/2016 
+				</div>
 			</div>
 		</div>
+
 		<div class="col-md-8 pull-right">
 			<p class="lead">Current Allergies</p>
 			<div class="list-group">
-				<div class="list-group-item">Medication</a>
-				<div class="list-group-item">Food</a>
-				<div class="list-group-item">Skin</a>
-				
+				<div class="list-group-item">Medication
+				</div>
+				<div class="list-group-item">Food
+				</div>
+				<div class="list-group-item">Skin
+				</div>
 			</div>
 		</div>
+
 		<div class="col-md-8 pull-right">
 			<p class="lead">Current Medications & Supplements</p>
-			<div class="list-group">
-				<div class="list-group-item">Category 1</a>
-				<div class="list-group-item">Category 2</a>
-				<div class="list-group-item">Category 3</a>
-
-			</div>
+				<div class="list-group">
+					<div class="list-group-item">Panadol</div>
+					<div class="list-group-item">Penicillin</div>
+				</div>
 		</div>
-		</div> 
-		</div> 
+	</div> 
+</div> 

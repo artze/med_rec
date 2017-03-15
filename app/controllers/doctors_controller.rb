@@ -21,7 +21,8 @@ class DoctorsController < ApplicationController
 	end
 
 	def show
-		@doctor = current_user
+		@user = current_user
+		@doctor = @user.doctor
 	end 
 
 	private
