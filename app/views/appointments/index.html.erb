@@ -1,54 +1,58 @@
-<% @appointments.each do |appointment| %>
+<h3 class="text-center">Your Appointment Records for <%= MedicalRecord.find(params[:medical_record_id]).medical_condition.name %></h3>
+<div class="container">
   <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Appointment #<%= appointment.id %> with <%= appointment.medical_record.doctor.user.full_name %></h3>
+    <% @appointments.each do |appointment| %>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Appointment #<%= appointment.id %> with <%= appointment.medical_record.doctor.user.full_name %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>
+              Appointment Date:<br>
+            </strong>
+            <%= appointment.appointment_date.strftime('%d %b %Y') %>
+          </p>
+          <p>
+            <strong>
+              Doctor's notes:<br>
+            </strong>
+            <%= appointment.notes %>
+          </p>
+          <br>
+          <% if appointment.medications.any? %>
+            <p>
+              <strong>
+                Prescription:
+              </strong>
+            </p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="col-md-3 med-record-index-table-header">
+                    Medication
+                  </th>
+                  <th class="col-md-2 med-record-index-table-header">
+                    Dosage
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% appointment.medications.each do |medication| %>
+                  <tr>
+                    <td>
+                      <%= medication.name %>
+                    </td>
+                    <td>
+                      <%= medication.dosage %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
       </div>
-      <div class="panel-body">
-        <p>
-          <strong>
-            Appointment Date:<br>
-          </strong>
-          <%= appointment.appointment_date.strftime('%d %b %Y') %>
-        </p>
-        <p>
-          <strong>
-            Doctor's notes:<br>
-          </strong>
-          <%= appointment.notes %>
-        </p>
-        <p>
-          <strong>
-            Prescription:<br>
-          </strong>
-            <div class="col-md-4">
-              <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th class="col-md-1 med-record-index-table-header">
-                                Medication
-                        </th>
-                        <th class="col-md-3 med-record-index-table-header">
-                            Dosage
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <% appointment.medications.each do |medication| %>
-                    <tr>
-                      <td>
-                        <%= medication.name %>
-                      </td>
-                      <td>
-                        <%= medication.dosage %>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-        </p>                        
-      </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
