@@ -3,17 +3,22 @@
     <div class="panel-group">
     <div class="panel panel-info">
 
-		<div class="panel-heading">Records Summary for <%= @patient.user.full_name %></div>
+		<div class="panel-heading"><b>Records Summary for <%= @patient.user.full_name %></b></div>
+
 		<div class="panel-body">
-			Medical Condition:<br> 
-			<%= MedicalRecord.find(params[:medical_record_id]).medical_condition.name %> <br>
-			Medical Category:<br>
-			<%= MedicalRecord.find(params[:medical_record_id]).medical_category.name %> <br>
+			<p><b>Medical Condition:</b><br>
+			<%= MedicalRecord.find(params[:medical_record_id]).medical_condition.name %> <br></p>
+			<p><b>Appointment Date:</b><br>
+				<%= @appointment.appointment_date.strftime('%d %b %Y') %>
+			<p><b>Notes:</b><br>
+			<%= @appointment.notes %>
+</div>
 
 			<% if !Medication.find_by(appointment_id: session[:appointment_id]).nil? %>
+			<div class="panel-heading"><b>Summary of <%= @patient.user.full_name %> Medication on <%= @appointment.appointment_date.strftime('%d %b %Y') %><b></div>
 				<% Medication.where(appointment_id: session[:appointment_id]).each do |med| %>
-					Medication: <%= med.name %>
-					Dosage: <%= med.dosage %>
+				<div class="panel-body"><b>	Medication: </b><br><%= med.name %></div>
+					<div class="panel-body"><b> Dosage: </b><br><%= med.dosage %></p></div>
 				<% end %>
 			<% end %>
 </div>
@@ -29,9 +34,14 @@
 		<%= form.label 'Dosage' %>
 		<%= form.text_field :dosage, class:"form-control" %>
 	</div>
-	<center><%= form.submit 'Submit', class:"btn btn-primary" %></center>
-<% end %>
+	<div class="form-group">
+	<%= form.submit 'Submit', class:"btn btn-primary" %>
+</div>
+<br>
+<hr>
 
+<div class="col-md-2 pull-right">
 <%= button_to 'Done', medical_record_appointment_completed_path(params[:medical_record_id]), method: :get, class: 'btn btn-success' %>
-
+</div>
+	<%end%>
 </div>
