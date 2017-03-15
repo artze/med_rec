@@ -1,39 +1,49 @@
 <div class="container">
 	<div class="col-md-6 col-md-offset-3">
-    <div class="panel-group">
-    <div class="panel panel-info">
+    	<div class="panel-group">
+    		<div class="panel panel-info">
+				<div class="panel-heading">
+				Records Summary for <%= @patient.user.full_name %>
+				</div>
+				
+				<div class="panel-body">
+					Medical Condition:
+					<br> 
+					<%= MedicalRecord.find(session[:medical_record_id]).medical_condition.name %> 
+				</div>
+					<div class="panel-body">Medical Category:<br>
+					<%= MedicalRecord.find(session[:medical_record_id]).medical_category.name %> </div>
+					<div class="panel-body">Appointment Date:<br>
+					<%= Appointment.where(medical_record_id: session[:medical_record_id]).last.appointment_date.strftime('%d %b %Y') %> </div>
+					<div class="panel-body">Notes:<br>
+					<%= Appointment.where(medical_record_id: session[:medical_record_id]).last.notes %> </div>
 
-<div class="panel-heading">Records Summary for <%= @patient.user.full_name %></div>
-<div class="panel-body">
-Medical Condition:<br> 
-<%= MedicalRecord.find(session[:medical_record_id]).medical_condition.name %> </div>
-<div class="panel-body">Medical Category:<br>
-<%= MedicalRecord.find(session[:medical_record_id]).medical_category.name %> </div>
-<div class="panel-body">Appointment Date:<br>
-<%= Appointment.where(medical_record_id: session[:medical_record_id]).last.appointment_date.strftime('%d %b %Y') %> </div>
-<div class="panel-body">Notes:<br>
-<%= Appointment.where(medical_record_id: session[:medical_record_id]).last.notes %> </div>
+					<% if !Medication.find_by(appointment_id: session[:appointment_id]).nil? %>
+						<% Medication.where(appointment_id: session[:appointment_id]).each do |med| %>
+							<div class="panel-body">Medication: <%= med.name %> </div>
+							<div class="panel-body">Dosage: <%= med.dosage %></div>
+						<% end %>
+					<% end %>
+					</div>
+					</div>
+					</div>
 
-<% if !Medication.find_by(appointment_id: session[:appointment_id]).nil? %>
-	<% Medication.where(appointment_id: session[:appointment_id]).each do |med| %>
-		<div class="panel-body">Medication: <%= med.name %> </div>
-		<div class="panel-body">Dosage: <%= med.dosage %></div>
-	<% end %>
+					<%= form_for @medication, html: {class:"col-md-6 col-md-offset-3"}, url: doctor_medications_submit_path do |form| %>
+					 	<div class="form-group">
+							<%= form.label 'Medication Name' %>
+						 	<%= form.text_field :name, class:"form-control" %>
+						</div>
+						<div class="form-group">
+							<%= form.label 'Dosage' %>
+							<%= form.text_field :dosage, class:"form-control" %>
+						</div>
+
+						<center>
+						<%= form.submit 'Add Prescription', class:"btn btn-primary" %>
 <% end %>
-</div>
-</div>
-</div>
+						<br>
 
-<%= form_for @medication, html: {class:"col-md-6 col-md-offset-3"}, url: doctor_medications_submit_path do |form| %>
- 	<div class="form-group">
-		<%= form.label 'Medication Name' %>
-	 	<%= form.text_field :name, class:"form-control" %>
-	</div>
-	<div class="form-group">
-		<%= form.label 'Dosage' %>
-		<%= form.text_field :dosage, class:"form-control" %>
-	</div>
-	<center><%= form.submit 'Submit', class:"btn btn-primary" %></center>
-<% end %>
+						<%= button_to 'Done', doctor_MR_completed_path(current_user), method: :get, class:"btn btn-success" %> </center>
+					
 
 </div>
