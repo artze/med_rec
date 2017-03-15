@@ -28,6 +28,7 @@ get "/sign_up" => "clearance/users#new", as: "sign_up"
  		post "/medical_records/input", to: 'medical_records#record_submit', as: 'MR_submit'
  		get "/medical_records/medication_input", to: 'medications#medications_input', as: 'medications_input'
  		post "/medical_records/medication_input", to: 'medications#medications_submit', as: 'medications_submit'
+        get '/medical_records/completed', to: 'medical_records#completed', as: 'MR_completed'
     get "/medical_records/completed", to: 'medical_records#completed', as: 'MR_completed'
     get '/appointment/patient_input', to: 'appointments#patient_input', as: 'appointment_patient_input'
     post '/appointment/patient_input', to: 'appointments#patient_submit', as: 'appointment_patient_submit'
