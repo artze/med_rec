@@ -2,7 +2,7 @@ class MedicalRecordsController < ApplicationController
 
 	def index
 		@patient = current_user
-		@medical_records = MedicalRecord.where(patient_id: current_user.patient.id)
+		@medical_records = MedicalRecord.includes(:medical_condition).order('medical_conditions.name asc').where(patient_id: current_user.patient.id)
 	end 
 
 	# def new 
