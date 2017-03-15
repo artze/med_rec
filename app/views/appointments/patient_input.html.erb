@@ -1,0 +1,14 @@
+<%= form_tag doctor_appointment_patient_submit_path(current_user.doctor), method: :post, class:"form-horizontal col-md-10 col-md-offset-2" do %>
+	
+	<div class="form-group">
+		<%= label_tag "identity_card", "Patient IC number", class: "col-md-2 control-label" %>
+		<div class="col-md-6">
+			<%= text_field_tag :identity_card, nil, class: "form-control", placeholder: 'IC Number with dashes e.g. 880101-33-2353'%>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-8 col-md-offset-2">
+			<%= submit_tag'Submit', class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>
