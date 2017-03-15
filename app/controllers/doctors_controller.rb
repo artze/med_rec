@@ -13,9 +13,10 @@ class DoctorsController < ApplicationController
 			@doctor = Doctor.new(user_id: @user.id, specialization: params[:specialization])
 			@doctor.save
 			sign_in(@user)
+			flash[:success] = "Doctor account successfully created!"
 			redirect_to doctor_path(@doctor)
 		else
-			flash[:notice] = 'Input Error'
+			flash[:danger] = 'Input Error'
 			redirect_to new_doctor_path
 		end
 	end

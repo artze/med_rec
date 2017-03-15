@@ -21,8 +21,8 @@
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-
-      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-heart-empty heart">Medbase</a></span>
+      <a class="navbar-brand" style="vertical-align: middle; font-size: 15px;" href="/">
+      <span class="glyphicon glyphicon-heart-empty heart">Medbase</a></span>
 
     </div>
 
@@ -81,7 +81,7 @@
 
   <div id="flash">
     <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+      <div class="alert alert-<%= key %>"><%=h value %></div>
     <% end %>
   </div>
 
