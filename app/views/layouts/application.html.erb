@@ -36,6 +36,11 @@
     
     <ul class="nav navbar-nav navbar-right">
       <% if signed_in? %>
+      <li><%= link_to 'About Us' %></li>
+      <li><%= link_to 'Services' %></li>
+      <li><%= link_to 'Specialist' %></li>
+      <li><%= link_to 'Product' %></li>
+      <li><%= link_to 'Articles' %></li>
       <li><%= link_to 'Sign Out', sign_out_path, method: :delete%></li>
       <% else %>
       <li><%= link_to 'About Us' %></li>
@@ -53,18 +58,19 @@
 <ul class="nav nav-tabs">
 <% if signed_in? %>
 <% if current_user.patient? %>
-  <li><%= link_to 'My Profile', user_path(current_user) %></li>
-  <li><%= link_to 'Appointments', user_path(current_user) %></li>
-  <li><%= link_to 'Medical Records', patient_medical_records_path(current_user.patient) %></li>
-  <li><%= link_to 'Medication', user_path(current_user) %></li>
+
+  <li><%= link_to 'My Profile', patient_path(current_user) %></li>
+  <li><%= link_to 'Appointments', edit_user_path %></li>
+  <li><%= link_to 'Medical Records', patient_medical_record_path(current_user) %></li>
+  <li><%= link_to 'Medication', edit_user_path %></li>
 </ul>
 
 <% else %>
 <!-- nav tabs for DOCTORS NAVBAR -->
 
 <ul class="nav nav-tabs">
-  <li><%= link_to 'My Profile', user_path(current_user) %></li>
-  <li><%= link_to 'Appointments', user_path(current_user) %></li>
+  <li><%= link_to 'My Profile', doctor_path(current_user) %></li>
+  <li><%= link_to 'Appointments', edit_user_path(current_user) %></li>
   <li><%= link_to 'New Medical Record', doctor_MR_patient_input_path(current_user.doctor)%></li>
   <% end -%>
   <% end -%>
