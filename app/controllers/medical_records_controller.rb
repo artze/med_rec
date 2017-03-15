@@ -2,7 +2,7 @@ class MedicalRecordsController < ApplicationController
 
 	def index
 		@patient = current_user
-		@medical_records = MedicalRecord.where(patient_id: current_user.patient.id)
+		@medical_records = MedicalRecord.includes(:medical_condition).order('medical_conditions.name asc').where(patient_id: current_user.patient.id)
 	end 
 
 	# def new 
@@ -41,7 +41,7 @@ class MedicalRecordsController < ApplicationController
 
 	def record_input
 		#medical record input form, medical conditions etc.
-		@user = Patient.find(session[:patient_id]).user
+		@patient = Patient.find(session[:patient_id])
 		@medical_conditions = MedicalCondition.all
 		@medical_categories = MedicalCategory.all
 		render 'medical_records/new_mr_form'
