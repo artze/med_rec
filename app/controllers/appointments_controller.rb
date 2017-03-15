@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
 	def index
-		@appointments = Appointment.where(medical_record_id: params[:medical_record_id])
+		@appointments = Appointment.where(medical_record_id: params[:medical_record_id]).order(created_at: :desc)
 	end
 
 	def patient_input
@@ -56,7 +56,7 @@ class AppointmentsController < ApplicationController
 			redirect_to medical_record_appointment_medications_input_path(params[:medical_record_id])
 		else
 			flash[:danger] = 'Medication record creation failed'
-			redirect_to medical_record_appointment_medications_input(params[:medical_record_id])
+			redirect_to medical_record_appointment_medications_input_path(params[:medical_record_id])
 		end
 	end
 
