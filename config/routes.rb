@@ -16,7 +16,7 @@ get "/sign_in" => "clearance/sessions#new", as: "sign_in"
 delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
 get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-resources :patients  do 
+	resources :patients  do 
  		resources :medical_records,
  		only: [:index, :show]
  	end 
@@ -30,4 +30,7 @@ resources :patients  do
  		post "/medical_records/medication_input", to: 'medications#medications_submit', as: 'medications_submit'
  	end 
 
+ 	resources :medical_records, only: [:show] do
+ 		resources :appointments, only: [:index]
+ 	end
 end
