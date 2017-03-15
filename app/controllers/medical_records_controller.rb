@@ -34,7 +34,8 @@ class MedicalRecordsController < ApplicationController
 			session[:patient_id] = @user.patient.id
 			redirect_to doctor_MR_input_path
 		else
-			render text: 'error'
+			flash[:danger] = 'Patient not found'
+			redirect_to doctor_MR_patient_input(current_user.doctor)
 		end
 	end
 

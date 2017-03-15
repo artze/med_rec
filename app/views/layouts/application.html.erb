@@ -69,7 +69,7 @@
 
 <ul class="nav nav-tabs">
   <li><%= link_to 'My Profile', doctor_path(current_user) %></li>
-  <li><%= link_to 'Appointments', edit_user_path(current_user) %></li>
+  <li><%= link_to 'New Appointment Record', doctor_appointment_patient_input_path(current_user.doctor) %></li>
   <li><%= link_to 'New Medical Record', doctor_MR_patient_input_path(current_user.doctor)%></li>
   <% end -%>
   <% end -%>
