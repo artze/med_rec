@@ -1,53 +1,50 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
-  <div class="panel panel-info">
-  <div class="panel-heading">Patient Info</div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Patient Info
+      </div>
       <div class="panel-body">
-        <b>Full name:</b> <%= @user.full_name %><br>
-        <b>IC:</b> <%= @user.identity_card %><br>
-        <b>Date of Birth:</b> <%= @user.patient.date_of_birth.strftime('%d %b %Y') %><br>
-        </div>
+        <p><b>Full name:</b><br> <%= @patient.user.full_name %></p>
+        <p><b>Identity Card:</b><br> <%= @patient.user.identity_card %></p>
+        <p><b>Date of Birth:</b><br> <%= @patient.date_of_birth.strftime('%d %b %Y') %></p>
+        <p><b>Gender:</b><br> <%= @patient.gender %></p>
+        <p><b>Height:</b><br> <%= @patient.height %> cm</p>
+        <p><b>Weight:</b><br> <%= @patient.weight %> kg</p>
+        <p><b>Blood Type:</b><br> <%= @patient.blood_type %></p>        
+      </div>
+    </div>
+
+    <%= form_tag(doctor_MR_submit_path, method: :post) do %>
+      <div class="form-group">
+        <label for="inputMR">Medical Condition</label>
+        <select class="form-control" id="medicalcondition-select" name="medical_condition">
+          <%= options_from_collection_for_select(@medical_conditions, 'id', 'name') %>
+        </select>
       </div>
 
-<%= form_tag(doctor_MR_submit_path, method: :post) do %>
+      <div class="form-group">
+        <label for="inputMR">Medical Category</label>
+        <select class="form-control" id="medicalcategory-select" name="medical_category">
+          <%= options_from_collection_for_select(@medical_categories, 'id', 'name') %>
+        </select>
+      </div>
 
-  
-   <div class="form-group">
-  <label for="inputMR">Medical Condition</label>
-  <select class="form-control" id="medicalcondition-select" name="medical_condition">
-    
-  <%= options_from_collection_for_select(@medical_conditions, 'id', 'name') %>
+      <div class="form-group">
+        <label for="inputAppt">Appointment</label>
+        <input type="date" name="appointment_date" class="form-control" value=<%=Date.today.strftime('%Y-%m-%d')%> >
+      </div>
 
-  </select>
+      <div class="form-group">
+        <label for="inputApptNotes">
+          <%= label_tag :notes %>
+        </label>
+        <%= text_area_tag :notes, nil, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= submit_tag 'Submit and prescribe medication', class: 'btn btn-primary col-md-offset-3' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-  <label for="inputMR">Medical Category</label>
-  <select class="form-control" id="medicalcategory-select" name="medical_category">
-  <%= options_from_collection_for_select(@medical_categories, 'id', 'name') %>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="inputAppt">Appointment</label>
-    <id="appointment-select" >
-    <input type="date" name="appointment_date" class="form-control" value=<%=Date.today.strftime('%Y-%m-%d')%> >
-   </div>
-
-
-  <div class="form-group">
-  <label for="inputApptNotes" >
-  <%= label_tag :notes %></label>
-  <%= text_area_tag :notes, nil, class: 'form-control' %></div>
-
-  <div class="form-group">
-    <%= submit_tag 'Submit and prescribe medication', class: 'btn btn-primary col-md-offset-3' %>
-  </div>
-
-
-<% end %>
-  
-</div>
-</div>
-</div>
 </div>

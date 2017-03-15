@@ -41,7 +41,7 @@ class MedicalRecordsController < ApplicationController
 
 	def record_input
 		#medical record input form, medical conditions etc.
-		@user = Patient.find(session[:patient_id]).user
+		@patient = Patient.find(session[:patient_id])
 		@medical_conditions = MedicalCondition.all
 		@medical_categories = MedicalCategory.all
 		render 'medical_records/new_mr_form'
