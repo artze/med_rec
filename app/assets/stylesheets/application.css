@@ -1,110 +1,118 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 body {
-    font: 400 15px Lato, sans-serif;
-    line-height: 1.8;
-    color: #818181;
-     padding-top: 70px; 
+font: 400 15px Lato, sans-serif;
+line-height: 1.8;
+color: #818181;
+padding-top: 70px;
 }
 
-.jumbotron {
-    font-family: Montserrat, sans-serif;
-     background-image:url("/6.jpg") ;
+h3.gform_title {
+    font-weight: 700;
+  }
 
-}
-
-.jumbotron h1 {
-
-  color: #fff;
-}
-
-.navbar {
-    font-family: Montserrat, sans-serif;
-}
-
-
-.jumbotron {
-    background-color: #f4511e;
+.gform_heading h3 {
+    margin: 0!important;
     color: #fff;
-    padding: 100px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
 }
 
+.gform_heading {
+    float: none;
+    padding: 17px 10px 16px;
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #117dbc;
+}
+
+.panel{
+	padding: 17px 10px 16px;
+}
+
+.jumbotron {
+font-family: Montserrat, sans-serif;
+background-image:url("/8.jpg");
+height: 500px;
+background-size: 100%;
+background-repeat: no-repeat;
+
+}
+.jumbotron h1 {
+padding-top: 70px;
+font-family: "Lato","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
+color: #fff;
+}
+.navbar {
+font-family: Montserrat, sans-serif;
+}
 .container-fluid {
-    padding: 60px 50px;
+padding: 60px 50px;
 }
-
 .heart{
-
 font-size: 25px;
 }
-
 .logo {
-    font-size: 200px;
+font-size: 200px;
 }
 @media screen and (max-width: 768px) {
-    .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
-    }
+.col-sm-4 {
+text-align: center;
+margin: 25px 0;
 }
-
+}
 .logo-small {
-
-    font-size: 50px;
+font-size: 50px;
 }
-
 .logo {
-
-    font-size: 200px;
+font-size: 200px;
 }
-
 .carousel-control.right, .carousel-control.left {
-    background-image: none;
-
+background-image: none;
 }
-
-
 .item h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    font-weight: 400;
-    font-style: italic;
-    margin: 70px 0;
+font-size: 19px;
+line-height: 1.375em;
+font-weight: 400;
+font-style: italic;
+margin: 70px 0;
 }
-
 .item span {
-    font-style: normal;
+font-style: normal;
 }
-
+p {
+margin: 0 0 10px;
+font-family: "Lato","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
+}
 h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #303030;
-    font-weight: 600;
-    margin-bottom: 30px;
+font-size: 24px;
+text-transform: uppercase;
+color: #303030;
+font-weight: 600;
+margin-bottom: 30px;
 }
-
 h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    color: #303030;
-    font-weight: 400;
-    margin-bottom: 30px;
+font-size: 19px;
+line-height: 1.375em;
+color: #303030;
+font-weight: 400;
+margin-bottom: 30px;
 }
-
 .form-group {
-    margin: 15px;
+margin: 15px;
 }

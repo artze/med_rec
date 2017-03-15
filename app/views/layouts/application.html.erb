@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
 <script src="https://use.fontawesome.com/a416a0a082.js"></script>
 
@@ -21,7 +21,9 @@
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
+
       <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-heart-empty heart">Medbase</a></span>
+
     </div>
 
  <!--    <p class="navbar-text navbar-right">
@@ -56,6 +58,7 @@
 <ul class="nav nav-tabs">
 <% if signed_in? %>
 <% if current_user.patient? %>
+
   <li><%= link_to 'My Profile', patient_path(current_user) %></li>
   <li><%= link_to 'Appointments', edit_user_path %></li>
   <li><%= link_to 'Medical Records', patient_medical_record_path(current_user) %></li>

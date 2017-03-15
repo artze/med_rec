@@ -1,0 +1,42 @@
+<!-- Page Content -->
+<div class="container">
+<h3>Medical Record for: <%= @patient.full_name %></h3>
+
+	<div class="col-md-10 col-md-offset-1">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="col-md-2">
+						Medical Condition
+					</th>
+					<th class="col-md-2">
+						Medical Category
+					</th>
+					<th class="col-md-2">
+						Doctor
+					</th>
+					<th class="col-md-2">
+						Notes &amp; Medication		
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @medical_records.each do |rec| %>
+					<tr>
+						<td>
+							<%= rec.medical_condition.name %>
+						</td>
+						<td>
+							<%= rec.medical_category.name %>
+						</td>
+						<td>
+							<%= rec.doctor.user.full_name %>
+						</td>
+						<td>
+							See more
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
