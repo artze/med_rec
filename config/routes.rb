@@ -34,7 +34,11 @@ get "/sign_up" => "clearance/users#new", as: "sign_up"
  	end 
 
  	resources :medical_records, only: [] do
-    get 'appointment/new', to: 'appointments#new', as: 'new_appointment'
+    resources :appointments, only: [:index]
+    get '/appointment/new', to: 'appointments#new', as: 'new_appointment'
     post '/appointment', to: 'appointments#create', as: 'appointment'
+    get '/appointment/medication_input', to: 'appointments#medication_input', as: 'appointment_medications_input'
+    post '/appointment/medication_submit', to: 'appointments#medication_submit', as: 'appointment_medications_submit'
+    get '/appointment/completed', to: 'appointments#completed', as: 'appointment_completed'
  	end
 end

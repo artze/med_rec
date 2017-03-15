@@ -24,7 +24,7 @@
 							<%= rec.id %>
 						</td>
 						<td>
-							<%= rec.medical_condition.name %>
+							<a href="<%= medical_record_new_appointment_path(rec) %>"> <%= rec.medical_condition.name %> </a>
 						</td>
 						<td>
 							<%= rec.medical_category.name %>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-info">
+  <div class="panel-heading">Patient Info</div>
+      <div class="panel-body">
+        <b>Full name:</b> <%= @patient.user.full_name %><br>
+        <b>IC:</b> <%= @patient.user.identity_card %><br>
+        <b>Date of Birth:</b> <%= @patient.date_of_birth.strftime('%d %b %Y') %><br>
+        </div>
+      </div>
+
+<%= form_for @appointment, url: medical_record_appointment_path(params[:medical_record_id]) do |form| %>
+
+  
+  <div class="form-group">
+    <%= form.label :appointment_date %>
+    <%= form.date_field :appointment_date, value: Date.today.strftime('%Y-%m-%d'), class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag 'Submit and prescribe medication', class: 'btn btn-primary col-md-offset-3' %>
+  </div>
+
+
+<% end %>
+  
+</div>
+</div>
+</div>
+</div>
