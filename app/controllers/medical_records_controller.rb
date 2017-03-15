@@ -58,6 +58,13 @@ class MedicalRecordsController < ApplicationController
 		redirect_to doctor_medications_input_path(params[:doctor_id])
 	end
 
+	def completed
+		session[:medical_record_id] = nil
+		session[:appointment_id] = nil
+		flash[:success] = "New Medical Record added!"
+		redirect_to doctor_path(current_user.doctor)
+	end 
+
 	private
 
 	# def mr_params

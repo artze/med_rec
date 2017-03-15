@@ -9,9 +9,10 @@ class PatientsController < ApplicationController
 		if @user.save
 			@user.patient!
 			sign_in(@user)
+			flash[:success] = "Patient account successfully created!"
 			redirect_to patient_path(@user.patient)
 		else
-			flash[:notice] = 'Input Error'
+			flash[:danger] = 'Input Error'
 			redirect_to new_patient_path
 		end
 	end
